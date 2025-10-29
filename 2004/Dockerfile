@@ -1,4 +1,4 @@
-FROM phusion/baseimage:focal-1.1.0
+FROM docker.io/phusion/baseimage:focal-1.1.0
 MAINTAINER Matthew Rayner <hello@rayner.io>
 ENV REFRESHED_AT 2021-09-07
 
@@ -56,6 +56,7 @@ RUN rm -rf /var/lib/mysql
 
 # Add MySQL utils
 ADD supporting_files/mysql_init.sh /mysql_init.sh
+RUN chmod 755 /mysql_init.sh
 
 # Add phpmyadmin
 RUN wget -O /tmp/phpmyadmin.tar.gz https://files.phpmyadmin.net/phpMyAdmin/${PHPMYADMIN_VERSION}/phpMyAdmin-${PHPMYADMIN_VERSION}-all-languages.tar.gz
